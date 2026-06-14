@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StayNest | Hotel Booking</title>
+    <meta
+      name="description"
+      content="A modern hotel booking experience with curated stays, smart search, and instant pricing."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">S</div>
+          <div>
+            <p>StayNest</p>
+            <span>Hotels made simple</span>
+          </div>
+        </div>
+        <nav class="topnav" aria-label="Primary">
+          <a href="#search">Search</a>
+          <a href="#hotels">Hotels</a>
+          <a href="#offers">Offers</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Find your next stay</p>
+            <h1>Book hotels with a cleaner, faster booking flow.</h1>
+            <p class="hero-text">
+              Explore hand-picked hotels, compare nightly prices, and confirm your stay in seconds.
+              Built for quick decisions and stress-free planning.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#search">Start searching</a>
+              <a class="button button-secondary" href="#hotels">View featured hotels</a>
+            </div>
+
+            <ul class="stats" aria-label="Platform highlights">
+              <li><strong>120+</strong><span>cities covered</span></li>
+              <li><strong>4.9/5</strong><span>guest rating</span></li>
+              <li><strong>24/7</strong><span>support team</span></li>
+            </ul>
+          </div>
+
+          <aside class="hero-card" aria-label="Quick booking overview">
+            <div class="hero-card-header">
+              <span>Tonight's spotlight</span>
+              <strong>From $189</strong>
+            </div>
+            <div class="spotlight-image spotlight-image-one"></div>
+            <div class="hero-card-body">
+              <div>
+                <h2>Aria Grand Kyoto</h2>
+                <p>Riverside rooms, spa access, breakfast included.</p>
+              </div>
+              <div class="hero-card-meta">
+                <span>4.9 rating</span>
+                <span>2 min from station</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="search-panel" id="search">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Search stays</p>
+              <h2>Tell us where you want to go.</h2>
+            </div>
+            <p>Filter by destination, dates, guests, and budget.</p>
+          </div>
+
+          <form class="search-form" id="search-form">
+            <label>
+              Destination
+              <input id="destination" name="destination" type="search" placeholder="Tokyo, Paris, Bali..." />
+            </label>
+            <label>
+              Check-in
+              <input id="checkin" name="checkin" type="date" />
+            </label>
+            <label>
+              Check-out
+              <input id="checkout" name="checkout" type="date" />
+            </label>
+            <label>
+              Guests
+              <select id="guests" name="guests">
+                <option value="1">1 guest</option>
+                <option value="2" selected>2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+              </select>
+            </label>
+            <label>
+              Budget
+              <select id="budget" name="budget">
+                <option value="any" selected>Any budget</option>
+                <option value="under200">Under $200</option>
+                <option value="200to350">$200 - $350</option>
+                <option value="350plus">$350+</option>
+              </select>
+            </label>
+            <button class="button button-primary search-button" type="submit">Find hotels</button>
+          </form>
+        </section>
+
+        <section class="content-grid" id="hotels">
+          <div class="section-block">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Featured hotels</p>
+                <h2>Choose a stay that matches your trip.</h2>
+              </div>
+              <span id="result-count">6 stays available</span>
+            </div>
+
+            <div class="hotel-grid" id="hotel-grid" aria-live="polite"></div>
+          </div>
+
+          <aside class="booking-summary" aria-label="Booking summary">
+            <p class="eyebrow">Booking summary</p>
+            <h2>Your selected stay</h2>
+            <div class="summary-card" id="summary-card">
+              <div class="summary-hero"></div>
+              <div class="summary-content">
+                <div>
+                  <h3 id="summary-name">Aria Grand Kyoto</h3>
+                  <p id="summary-location">Kyoto, Japan</p>
+                </div>
+                <div class="summary-row">
+                  <span>Nights</span>
+                  <strong id="summary-nights">2</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Guests</span>
+                  <strong id="summary-guests">2</strong>
+                </div>
+                <div class="summary-row total">
+                  <span>Total</span>
+                  <strong id="summary-total">$378</strong>
+                </div>
+                <button class="button button-primary summary-button" id="book-button" type="button">
+                  Reserve now
+                </button>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="offers" id="offers">
+          <div class="offer-card">
+            <p class="eyebrow">Member perks</p>
+            <h2>Save more on longer stays.</h2>
+            <p>Unlock daily breakfast, late checkout, and free cancellation on selected rooms.</p>
+          </div>
+          <div class="offer-card accent">
+            <p class="eyebrow">Flash deal</p>
+            <h2>Up to 25% off beachfront suites.</h2>
+            <p>Book this week and get a complimentary airport transfer on qualifying properties.</p>
+          </div>
+        </section>
+
+        <section class="testimonials" aria-label="Guest testimonials">
+          <article>
+            <p>"The search flow felt fast and focused. I found a hotel and booked it in under two minutes."</p>
+            <span>Amara, Singapore</span>
+          </article>
+          <article>
+            <p>"The pricing summary made it easy to compare options without opening a dozen tabs."</p>
+            <span>Jonas, Berlin</span>
+          </article>
+          <article>
+            <p>"Clean design, clear details, and the booking card gave me confidence to confirm."</p>
+            <span>Layla, Dubai</span>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer" id="contact">
+        <p>StayNest</p>
+        <span>Built for modern hotel discovery and booking.</span>
+      </footer>
+    </div>
+  </body>
+</html>
